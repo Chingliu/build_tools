@@ -167,3 +167,11 @@ def make_all_platforms(project, qmake_config_addon=""):
     print("------------------------------------------")
     make(platform, project, qmake_config_addon)
   return
+
+if __name__ == "__main__":
+  if len(sys.argv) < 2:
+    print("Usage: python ./qmake.py <project_file>")
+    sys.exit(1)
+  config.parse()
+  project_file = sys.argv[1]
+  make("linux_64", project_file, "")
